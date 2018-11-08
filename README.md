@@ -83,7 +83,7 @@ to monitor the application log during running:
 
 --
 
-## Fucntional-Test
+## Functional-Test
 
 Right after [running the server](#user-content-run) at localhost:3000 (configurable)
 
