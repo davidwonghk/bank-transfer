@@ -1,20 +1,20 @@
 # README
 
-[Introduction](#markdown-header-introduction)
+[Introduction](#user-content-introduction)
 
-[Setup](#markdown-header-setup)
+[Setup](#user-content-setup)
 
-[Functional-Test](#markdown-header-functional-test)
+[Functional-Test](#user-content-functional-test)
 
-[RESTful-API](#markdown-header-restful-api)
+[RESTful-API](#user-content-restful-api)
 
-[Directory-Structure](#markdown-header-directory-structure)
+[Directory-Structure](#user-content-directory-structure)
 
-[System-Design](#markdown-header-system-design)
+[System-Design](#user-content-system-design)
 
-[Depended-Libraries](#markdown-header-depended-libraries)
+[Depended-Libraries](#user-content-depended-libraries)
 
-[TODO](#markdown-header-todo)
+[TODO](#user-content-todo)
 
 ## Introduction
 This project implements a RESTful API in JAVA for money transfers between accounts as for a coding demo.
@@ -85,7 +85,7 @@ to monitor the application log during running:
 
 ## Fucntional-Test
 
-Right after [running the server](#markdown-header-run) at localhost:3000 (configurable)
+Right after [running the server](#user-content-run) at localhost:3000 (configurable)
 
 (to ensure the account balances are in default values)
 
@@ -198,15 +198,15 @@ logfile properties: [src/main/resources/log4j2.properties](src/main/resources/lo
 
 The data model is stored in memony and keep as minimal for demo purpose
 
-![ER Diagram](https://bitbucket.org/cornsdev/bank-transfer/raw/41d50b02fc4f5d2474ed22a90d7efc3d9c5f2f52/diagram/er.png)
+![ER Diagram](diagram/er.png?raw=true)
 
 #### Sequence Diagram for current design
-![Producer Consumer pattern iwth a blocking queue](https://bitbucket.org/cornsdev/bank-transfer/raw/23c17147e7182a9c8787e51d9783352ec03068c7/diagram/sequence.png)
+![Producer Consumer pattern iwth a blocking queue](diagram/sequence.png?raw=true)
 
 #### Transactional ensuring architecture by Producer-Consumer pattern
 Under the hood this bankend uses the Producer-Consumer(with blocking queues) architecture to ensure the money transfers are transactional, even under the stateless HTTP RESTFul protocal. For demo purpose there is only one consumer, but in practice there can be multiple consumers consuming pending transactions base on the sender/receiver account numbers. 
 
-![Producer Consumer pattern with a blocking queue](https://bitbucket.org/cornsdev/bank-transfer/raw/23c17147e7182a9c8787e51d9783352ec03068c7/diagram/producer-consumer.png)
+![Producer Consumer pattern with a blocking queue](diagram/producer-consumer.png?raw=true)
 
 For example, when the consumer#1 is consuming money transfer from ac1 to ac2, all the forth-coming pending transactions realted to ac1 and ac2 should assign to consumer#1 (actually, each consumer should has their own queue)
 
@@ -226,7 +226,6 @@ the list below is for references only. The built jar file (bank-transfer-xxx-jar
 
 
 # TODO
-
 * more unit testings
 * support different currency
 * support pagination
